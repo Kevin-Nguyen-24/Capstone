@@ -1,0 +1,9 @@
+flask
+ultralytics
+torch
+transformers
+opencv-python-headless
+pillow
+requests
+gunicorn
+flask-cors>=3.0.10

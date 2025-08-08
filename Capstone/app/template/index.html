@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 90vh;">
+  <div class="text-center mb-4">
+    <h2 class="fw-bold mt-4">Welcome, {{ patient_name|default('Patient') }}! <span style="font-size:1.5rem;">👋</span></h2>
+    <div class="alert alert-success py-2" style="max-width:400px;margin:auto;">You have 0 reminders scheduled for today.</div>
+  </div>
+  <div class="w-100" style="max-width: 400px;">
+    <!-- Scan Pill -->
+    <div class="card mb-4 shadow-sm text-center p-4 rounded-4" style="background:#fff;">
+      <div class="d-flex justify-content-center mb-2">
+        <div style="background: #e3f2fd; border-radius: 50%; width: 90px; height: 90px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px #b3e5fc;">
+          <i class="bi bi-capsule" style="font-size:3rem; color:#039be5;"></i>
+        </div>
+      </div>
+      <a href="/scan_pills" class="btn btn-info btn-lg w-100 py-3 d-flex align-items-center justify-content-center" style="font-size:1.4rem; border-radius: 14px;">
+        <i class="bi bi-camera-video-fill me-2"></i> Daily Pill Check
+      </a>
+      <small class="text-muted">Check your daily medication</small>
+    </div>
+
+    <!-- Scan Prescription -->
+    <div class="card mb-4 shadow-sm text-center p-4 rounded-4" style="background:#fff;">
+      <div class="d-flex justify-content-center mb-2">
+        <div style="background: #fff3e0; border-radius: 50%; width: 90px; height: 90px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px #ffe0b2;">
+          <i class="bi bi-file-earmark-text" style="font-size:3rem; color:#ffb300;"></i>
+        </div>
+      </div>
+      <a href="/scan_prescription" class="btn btn-warning btn-lg w-100 py-3 d-flex align-items-center justify-content-center" style="font-size:1.4rem; border-radius: 14px;">
+        <i class="bi bi-file-earmark-text me-2"></i> Scan Prescription
+      </a>
+      <small class="text-muted">Add new prescription</small>
+    </div>
+
+    <!-- View Prescription -->
+    <div class="card mb-4 shadow-sm text-center p-4 rounded-4" style="background:#fff;">
+      <div class="d-flex justify-content-center mb-2">
+        <div style="background: #ede7f6; border-radius: 50%; width: 90px; height: 90px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px #d1c4e9;">
+          <i class="bi bi-clipboard-data" style="font-size:3rem; color:#673ab7;"></i>
+        </div>
+      </div>
+      <a href="/view_structured_output" class="btn btn-primary btn-lg w-100 py-3 d-flex align-items-center justify-content-center" style="font-size:1.4rem; border-radius: 14px;">
+        <i class="bi bi-clipboard-data me-2"></i> View Prescription
+      </a>
+      <small class="text-muted">See extracted prescription details</small>
+    </div>
+
+    <!-- Reminder -->
+    <div class="card mb-4 shadow-sm text-center p-4 rounded-4" style="background:#fff;">
+      <div class="d-flex justify-content-center mb-2">
+        <div style="background: #e3fcec; border-radius: 50%; width: 90px; height: 90px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px #b2f7cc;">
+          <i class="bi bi-bell-fill" style="font-size:3rem; color:#27ae60;"></i>
+        </div>
+      </div>
+      <a href="/reminders" class="btn btn-success btn-lg w-100 py-3 d-flex align-items-center justify-content-center" style="font-size:1.4rem; border-radius: 14px;">
+        <i class="bi bi-bell-fill me-2"></i> Reminders
+      </a>
+      <small class="text-muted">Set medication reminders</small>
+    </div>
+
+    <!-- History -->
+    <div class="card mb-4 shadow-sm text-center p-4 rounded-4" style="background:#fff;">
+      <div class="d-flex justify-content-center mb-2">
+        <div style="background: #e3f2fd; border-radius: 50%; width: 90px; height: 90px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px #b3e5fc;">
+          <i class="bi bi-journal-medical" style="font-size:3rem; color:#039be5;"></i>
+        </div>
+      </div>
+      <a href="/history" class="btn btn-info btn-lg w-100 py-3 d-flex align-items-center justify-content-center" style="font-size:1.4rem; border-radius: 14px;">
+        <i class="bi bi-journal-medical me-2"></i> History
+      </a>
+      <small class="text-muted">View your medication history</small>
+    </div>
+
+    <!-- Guardian --> 
+    <div class="card mb-4 shadow-sm text-center p-4 rounded-4" style="background:#fff;">
+      <div class="d-flex justify-content-center mb-2">
+        <div style="background: #f3e5f5; border-radius: 50%; width: 90px; height: 90px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px #e1bee7;">
+          <i class="bi bi-people-fill" style="font-size:3rem; color:#8e44ad;"></i>
+        </div>
+      </div>
+      <a href="/guardian" class="btn btn-secondary btn-lg w-100 py-3 d-flex align-items-center justify-content-center" style="font-size:1.4rem; border-radius: 14px;">
+        <i class="bi bi-people-fill me-2"></i> Guardian
+      </a>
+      <small class="text-muted">Manage your family/guardian alerts</small>
+    </div>
+    
+    
+  </div>
+</div>
+{% endblock %} 

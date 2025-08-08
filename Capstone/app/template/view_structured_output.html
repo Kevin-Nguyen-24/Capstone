@@ -1,0 +1,33 @@
+<!-- templates/view_structured_output.html -->
+{% extends "layout.html" %}
+{% block content %}
+<div class="container mt-5">
+  <h3>🧾 Prescription Output</h3>
+  {% if data %}
+    <table class="table table-bordered mt-3">
+      <thead>
+        <tr>
+          <th>Medicine</th>
+          <th>Dosage</th>
+          <th>Quantity</th>
+          <th>Instruction</th>
+          <th>Refill</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in data %}
+        <tr>
+          <td>{{ item.medicine }}</td>
+          <td>{{ item.dosage }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>{{ item.Instruction }}</td>
+          <td>{{ item.Refill }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <div class="alert alert-warning">No structured data found.</div>
+  {% endif %}
+</div>
+{% endblock %}

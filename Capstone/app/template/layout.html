@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MedScan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+      body {
+        background: linear-gradient(135deg, #eaf6fb 0%, #f7fafd 100%) !important;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        min-height: 100vh;
+      }
+      .navbar {
+        background: #25364a !important;
+        box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+      }
+      .navbar-brand {
+        font-weight: bold;
+        font-size: 2rem;
+        letter-spacing: 1px;
+      }
+      .nav-link {
+        color: #fff !important;
+        font-size: 1.1rem;
+        margin-left: 1.5rem;
+        transition: color 0.2s;
+      }
+      .nav-link.active, .nav-link:focus, .nav-link:hover {
+        color: #4fc3f7 !important;
+      }
+      .footer {
+        position: fixed;
+        left: 0; right: 0; bottom: 0;
+        background: #f7fafd;
+        color: #888;
+        text-align: center;
+        padding: 0.7rem 0 0.5rem 0;
+        font-size: 1rem;
+        z-index: 100;
+        border-top: 1px solid #e0e0e0;
+      }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">MedScan</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link {% if request.path == '/' %}active{% endif %}" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link {% if request.path.startswith('/history') %}active{% endif %}" href="/history"><i class="bi bi-journal-medical"></i> History</a></li>
+            <li class="nav-item"><a class="nav-link {% if request.path.startswith('/reminders') %}active{% endif %}" href="/reminders"><i class="bi bi-bell"></i> Reminders</a></li>
+            <li class="nav-item"><a class="nav-link {% if request.path.startswith('/guardian') %}active{% endif %}" href="/guardian"><i class="bi bi-people"></i> Guardian</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container-fluid" style="padding-bottom: 4rem;">
+      {% block content %}{% endblock %}
+    </div>
+    <div class="footer">
+      &copy; 2025 MedScan. All rights reserved.
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html> 
